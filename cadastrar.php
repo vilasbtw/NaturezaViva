@@ -13,7 +13,6 @@
 
     if (mysqli_num_rows($resultado) > 0) {
         echo "Usuário já existente. Escolha outro nome.";
-        echo "voltar.";
     } else {
         $queryCadastro = "INSERT INTO Usuarios(id, nome, senha, tipoUsuario) VALUES (default, '$nome', '$senha', default)";
         $inseriu = mysqli_query($conexao, $queryCadastro);
@@ -24,4 +23,5 @@
             echo "Erro ao cadastrar o usuário. Tente novamente.";
         }
     }
+    mysqli_close($conexao);
 ?>

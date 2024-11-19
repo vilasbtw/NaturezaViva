@@ -1,3 +1,17 @@
+<?php
+    session_start();
+
+    if (!isset($_SESSION['id'])) {
+        header("Location: index.php");
+        exit();
+    }
+
+    if ($_SESSION['tipoUsuario'] != 1) {
+        header("Location: user.php");
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

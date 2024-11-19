@@ -1,4 +1,6 @@
 <?php   
+    session_start();
+
     include "conexao.php";
     include "link.php";
     
@@ -14,6 +16,11 @@
         $usuario = mysqli_fetch_assoc($linhas);
 
         if ($usuario['senha'] == $senha) {
+
+            $_SESSION['id'] = $usuario['id'];
+            $_SESSION['nome'] = $usuario['nome'];
+            $_SESSION['tipoUsuario'] = $usuario['tipoUsuario'];
+
             if ($usuario['tipoUsuario'] == 1) {
                 header('Location: admin.php');
             } else {
@@ -27,5 +34,5 @@
     } else {
         echo "Usuario não encontrado.";
     }
-
+    mysqli_close($conexao);
 ?>
