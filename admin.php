@@ -21,7 +21,7 @@
 </head>
 <body>
     <?php include "link.php";?>
-    <p>Cadastrar novo espaço</p>
+    <a href="formularioCadastroEspaco.php">Cadastrar novo espaço</a>
     <p>Alterar espaços</p>
     <p>Mudar permissão de usuários</p>
 </body>
