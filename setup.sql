@@ -14,4 +14,13 @@ CREATE TABLE Espacos(
 	tipo ENUM('salão', 'auditório') NOT NULL,
 	endereco VARCHAR(255) NOT NULL,
 	capacidade INT NOT NULL
+)
+
+CREATE TABLE Horarios (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    	espaco_id INT NOT NULL,
+   	data DATE NOT NULL,
+	horario TIME NOT NULL,
+    	status ENUM('disponivel','pendente','reservado') DEFAULT 'disponivel',
+	FOREIGN KEY (espaco_id) REFERENCES Espacos(id)    
 );

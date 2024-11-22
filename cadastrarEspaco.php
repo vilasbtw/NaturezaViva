@@ -14,9 +14,12 @@
     $inseriu = mysqli_query($conexao, $query);
 
     if ($inseriu) {
+        $espaco_id = mysqli_insert_id( $conexao );
+
         echo "Espaço cadastrado com sucesso!";
+        echo "<br><button><a href='formularioAdicionarHorario.php?=$espaco_id'>Adicionar um horário</a></button>";
      } else {
-        echo "Erro ao cadastrar o espaço. Tente novamente.";
+        echo "Erro ao cadastrar o espaço.";
     }
     
     mysqli_close($conexao);
