@@ -1,3 +1,12 @@
+<?php
+    session_start();
+
+    if ($_SESSION['tipoUsuario'] != 1) {
+        header("Location: user.php");
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,10 +29,10 @@
         <option value="auditório">Auditório</option>
     </select><br>
 
-    <label for="capacidade">Capacidade Total:</label>
+    <label for="capacidade">Capacidade:</label>
     <input type="number" name="capacidade" required><br>
 
-    <input type="submit" value="Enviar">
+    <input type="submit" value="Cadastrar Espaço">
     </form>
 </body>
 </html>

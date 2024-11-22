@@ -9,7 +9,7 @@
     $capacidade = $_POST["capacidade"];
 
     $conexao = conectar();
-    $query = "INSERT INTO Espacos(id, nome, tipo, endereco, status, capacidade) VALUES (default, '$nome', '$tipo', '$endereco', default, '$capacidade')";
+    $query = "INSERT INTO Espacos(id, nome, tipo, endereco, capacidade) VALUES (default, '$nome', '$tipo', '$endereco', '$capacidade')";
     
     $inseriu = mysqli_query($conexao, $query);
 
