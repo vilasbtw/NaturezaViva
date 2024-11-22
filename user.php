@@ -12,10 +12,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Usuario Comum</title>
+    <title>Painel de Usuario</title>
 </head>
 <body>
-    <?php include "link.php";?>
+    <a href="logout.php">Sair</a>
     <p>Alugar espaço</p>
     <p>Consultar espaço</p>
 </body>

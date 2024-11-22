@@ -20,7 +20,7 @@
     <title>Painel de Administrador</title>
 </head>
 <body>
-    <?php include "link.php";?>
+    <a href="logout.php">Sair</a>
     <a href="formularioCadastroEspaco.php">Cadastrar novo espaço</a>
     <p>Alterar espaços</p>
     <p>Mudar permissão de usuários</p>
