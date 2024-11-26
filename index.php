@@ -16,10 +16,23 @@ if (isset($_SESSION['tipoUsuario'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/form.css">
     <title>Bem-vindo!</title>
 </head>
 <body>
-    <a href="formularioCadastro.php">Cadastrar</a><br>
-    <a href="formularioEntrar.php">Entrar</a>
+    <main>
+        <h1>Natureza Viva</h1>
+        <form method="POST" action="entrar.php">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" required><br>
+
+            <label for="senha">Senha</label>
+            <input type="text" name="senha" required><br>
+
+            <input type="submit" value="Enviar">
+        </form>
+        <p>não possui conta? <a href="formularioCadastro.php">cadastre-se</a></p>
+    </main>
 </body>
 </html>
