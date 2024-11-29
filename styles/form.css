@@ -1,15 +1,61 @@
-body {
-  background-image: url(../bg.png);
-  background-size: cover;
-  background-position: center;
-  font-family: 'Montserrat';
-  width: 100vw; height: 100vh;
+.formulario-padrao {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
-body main {
+body .formulario-padrao form input {
+  width: 100%;
+  font-size: 15px;
+  color: #343434;
+  font-weight: bold;
+  height: 40px;
+  padding-left: 10px;
+}
+.formulario-padrao form .input-row {
+  width: 100%;
+}
+body .formulario-padrao form input[type="submit"] {
+  border: none;
+  outline: none;
+  font-weight: bolder;
+  font-size: 15px;
+  padding: 0;
+  background-color: #BCD979;
+  align-self: center;
+}
+body .formulario-padrao form input[type="submit"]:hover {
+  background-color: #9DAD6F;
+}
+
+body .formulario-padrao h1 {
+  margin-bottom: 5px;
+  font-size: 50px;
+  color: #5E574D;
+  text-align: center;
+}
+
+a {
+  color: #535b3c;
+}
+body .formulario-padrao p {
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+body .formulario-padrao form label {
+  font-size: 18px;
+}
+
+body .formulario-padrao form {
+  display: flex;
+  width: 80%; height: 50%;
+  align-items: baseline;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.formulario-padrao {
   background-color: white;
   box-shadow: 1px 1px 2px 2px #5E574D;
   border-radius: 10px;
@@ -19,57 +65,4 @@ body main {
   justify-content: center;
   width: 30%; height: 45%;
   min-width: 450px;
-}
-
-@media only screen and (max-width: 600px) {
-  body main {
-    height: 80%;
-    width: 90%;
-  }
-}
-
-body main form input {
-  width: 100%;
-  font-size: 15px;
-  color: #343434;
-  font-weight: bold;
-  height: 40px;
-  padding-left: 10px;
-}
-body main form input[type="submit"] {
-  border: none;
-  outline: none;
-  font-weight: bolder;
-  font-size: 15px;
-  padding: 0;
-  background-color: #BCD979;
-  align-self: center;
-}
-body main form input[type="submit"]:hover {
-  background-color: #9DAD6F;
-}
-
-body main h1 {
-  margin-bottom: 5px;
-  font-size: 50px;
-  color: #5E574D;
-}
-
-a {
-  color: #535b3c;
-}
-body main p {
-  margin-top: 30px;
-  font-size: 18px;
-}
-
-body main form label {
-  font-size: 18px;
-}
-
-body main form {
-  display: flex;
-  width: 80%;
-  align-items: baseline;
-  flex-direction: column;
 }

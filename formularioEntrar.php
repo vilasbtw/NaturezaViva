@@ -8,12 +8,16 @@
 <body>
     <?php include "link.php";?>
     <form method="POST" action="entrar.php">
-    <label for="nome">Nome</label>
-    <input type="text" name="nome" required><br>
+    <div class="input-row">
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" required><br>
+    </div>
 
-    <label for="senha">Senha</label>
-    <input type="text" name="senha" required><br>
-
+    <div class="input-row">
+        <label for="senha">Senha</label>
+        <input type="text" name="senha" required><br>
+    </div>
+    
     <input type="submit" value="Enviar">
     </form>
 </body>

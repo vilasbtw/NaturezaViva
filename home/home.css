@@ -1,0 +1,245 @@
+body {
+  width: 100vw; height: 100vh;
+}
+
+main {
+  position: relative;
+  width: 100%; height: 100%;
+  display: flex;
+}
+
+.left-panel {
+  z-index: 10;
+  width: 30%; min-width: 400px;
+  transition: width 1000ms ease-in-out;
+  background: linear-gradient(to bottom, #d4f290, #ceef81);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hamburguer img {
+  width: 50px;
+}
+
+
+.pesquisar-form {
+  display: flex;
+  justify-content: center;
+}
+.pesquisar-form button[type="submit"] {
+  width: 10%;
+  border-radius: 0 10px 10px 0;
+  border: 1px solid gray;
+  background: none;
+  min-width: 40px
+}
+.pesquisar-form button[type="submit"]:hover {
+  border: 2px solid black;
+}
+
+.formulario-cadastrar {
+  position: absolute;
+  width: 80%; height: 60%;
+  max-width: 1000px;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  background-color: white;
+  z-index: 3;
+}
+
+button[type="submit"] img {
+  width: 20px;
+}
+
+.hamburguer {
+  z-index: 11;
+  position: absolute;
+  margin: 10px;
+  font-weight: bolder;
+  background: none;
+  border: none;
+}
+.hamburguer:hover {
+  filter: invert(80%);
+}
+
+.alugueis {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  width: 100%; height: 100%;
+}
+
+.alugueis .top-section {
+  display: flex;
+  align-items: center;
+  margin-top: 3%;
+  height: 15%; width: 100%;
+}
+
+
+.popup {
+  z-index: 9;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; height: 100%;
+
+  border: 1px solid black;
+}
+
+.popup div {
+  position: relative;
+}
+.x {
+  position: absolute;
+  background-color: none;
+  border: none;
+  left: 0; top: 0;
+  font-size: 30px;
+  margin: 10px;
+}
+.espaco:hover {
+  border: 1px solid black;
+}
+.cadastrar-espaco {
+  display: flex;
+  border: 1px solid gray;
+  border-radius: 10px;
+  flex-direction: column;
+  justify-content: center;
+  width: 30%; min-width: 600px;
+  height: 45%;
+}
+.cadastrar-espaco h2 {
+  font-size: 30px;
+}
+
+.disabled {
+  display: none;
+}
+
+.alugueis .top-section .pesquisar-div {
+  min-width: 400px;
+  width: 50%
+}
+
+.pesquisar {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 10px 0 0 10px;
+  border-right: none;
+  height: 40px;
+  margin-left: 10%;
+  font-size: 18px;
+}
+@media only screen and (max-width: 800px) {
+  .left-panel {
+    position: absolute;
+    width: 100%; height: 100%;
+  }
+  .top-section {
+    justify-content: center;
+  }
+  .pesquisar {
+    margin-left: 0;
+  }
+  .popup {
+    height: 100%; width: 100%;
+    background-color: white;
+  }
+  .cadastrar-espaco {
+    border: none;
+    min-width: 0; max-width: none;
+    width: 80%;
+  }
+}
+
+.espacos-div {
+  margin-top: 5%;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%; height: 70%;
+  overflow-y: scroll;
+}
+
+.espaco {
+  margin-bottom: 50px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  width: 40%; height: 40%;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+}
+
+.espaco h3 {
+  font-size: 40px;
+  text-align: center;
+}
+.content {
+  margin-top: 20%;
+  width: 80%; height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#titulo2 {
+  text-align: center;
+  align-self: center;
+  justify-self: center;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 28px;
+}
+
+#perfil {
+  font-size: x-large;
+  color: black; 
+  padding: 15% 0;
+  margin-bottom: 5%;
+  text-align: center;
+  font-size: 40px;  
+  border: 1px solid black;
+  text-decoration: none;
+}
+
+.botoes {
+  width: 100%; height: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.botaoMenu {
+  width: 100%; height: 40px;
+  text-align: center;
+  background: none;
+
+  border: none;
+  border: 1px solid black;
+}
+
+.botaoMenu:hover {
+  cursor: pointer;
+  transition-duration: 100ms;
+  
+}
+.espaco-msg {
+  text-align: center;
+  font-size: 20px;
+  color: gray;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
