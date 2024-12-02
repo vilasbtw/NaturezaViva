@@ -4,6 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" defer>
     <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="adm/cadastrar_espaco.css" />
+    <link rel="stylesheet" href="adm/visualizar_espaco_adm.css" />
     <link rel="stylesheet" href="../styles/form.css">
     <link rel="stylesheet" href="home.css">
 
@@ -85,6 +87,7 @@
       const leftPanel = document.querySelector('.left-panel');
 
       if (document.querySelector('.popup')) {
+        document.querySelector('.left-panel').classList.toggle('disabled');
         [...document.querySelector('.popup').parentElement.children].forEach(el => {
           if (el != document.querySelector('.popup')) el.style.filter = 'blur(2px)';
         });

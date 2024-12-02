@@ -1,5 +1,4 @@
 <?php
-    function conectar() {
-        return $conexao = mysqli_connect("localhost","root",'', "Natureza_Viva");
-    }
-?>
+function conectar() {
+    return mysqli_connect("localhost","root",'', "Natureza_Viva");
+}

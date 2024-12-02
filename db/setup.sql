@@ -26,7 +26,7 @@ CREATE TABLE Horarios (
 	id int PRIMARY KEY AUTO_INCREMENT,
 	inicio date, fim date,
 	ocorrencia varchar(255),
-	status varchar(255) 
+	status varchar(255),
 
 	id_espaco int,
 	id_usuario int,

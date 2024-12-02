@@ -5,11 +5,11 @@ $espaco = getEspacoWithId($_GET['id']);
     <div class="espaco-expanded">
         <button class="x"><a href="../home/admHome.php">x</a></button>
         <h2><?php echo $espaco['nome']; ?></h2>
-        <p>Endereco: <?php echo $espaco['endereco']; ?></p>
+        <p class="endereco">Endereco: <?php echo $espaco['endereco']; ?></p>
 
         <div class="horario-div">
             <h3>HORARIOS</h3>
-            <form action="../cadastrarHorario.php" method="POST">
+            <form class="adicionar-horario-form" action="../actions/cadastrarHorario.php" method="POST">
                 <input type="hidden" name="espaco-id" value="<?php echo $_GET['id']; ?>"/>
                 <div class="input-row">
                     <label for="inicio">inicio: </label>
@@ -25,10 +25,26 @@ $espaco = getEspacoWithId($_GET['id']);
             <div class="exibir-horarios">
                 <?php include $_SERVER["DOCUMENT_ROOT"] . "/naturezaviva/horarios/getHorarios.php";
                     $horarios = getHorariosFrom($_GET['id']);
-                    foreach ($horarios as $horario) {
-                        echo <<<HTML
-                            {$horario["inicio"]}                        
-                        HTML;
+                    if (empty($horarios)) {
+                        echo "<p class='horario-msg'>nenhum horário cadastrado</p>";
+
+                    } else {
+                        foreach ($horarios as $horario) {
+                            $inicioFormatado = date_format(new DateTime($horario["inicio"]), 'd/m/Y');
+                            $finalFormatado = date_format(new DateTime($horario["fim"]), 'd/m/Y');
+                            echo <<<HTML
+                                <div class="horario">
+                                    <form method="POST" action="../actions/removerHorario.php">
+                                        <input type="hidden" name="espaco-id" value="{$espaco['id']}" />
+                                        <input type="hidden" name="horario-id" value="{$horario['id']}" />
+
+                                        <button type="submit"><img src="../res/lixo.png" /></button>
+                                    </form>
+                                    <p>{$inicioFormatado}</p>
+                                    <p>{$finalFormatado}</p>
+                                </div>                        
+                            HTML;
+                        }
                     }
 
                 ?>

@@ -23,28 +23,28 @@ if (isset($_SESSION['tipoUsuario'])) {
 </head>
 <body>
     <div class="formulario-padrao">
-<div class="checkbox-wrapper-5">
-  <div class="check">
-    <input checked="" id="check-5" type="checkbox">
-    <label for="check-5"></label>
-  </div>
-</div>
-
-    <h1>Natureza Viva</h1>
-    <form method="POST" action="entrar.php">
-        <div class="input-row">
-            <label for="nome">Nome</label>
-            <input type="text" name="nome" required><br>
+        <div class="checkbox-wrapper-5">
+        <div class="check">
+            <input checked="" id="check-5" type="checkbox">
+            <label for="check-5"></label>
+        </div>
         </div>
 
-        <div class="input-row">
-            <label for="senha">Senha</label>
-            <input type="text" name="senha" required><br>
-        </div>
+        <h1>Natureza Viva</h1>
+        <form method="POST" action="entrar.php">
+            <div class="input-row">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" required><br>
+            </div>
 
-        <input type="submit" value="Enviar">
-    </form>
-    <p>não possui conta? <a href="formularioCadastro.php">cadastre-se</a></p>
+            <div class="input-row">
+                <label for="senha">Senha</label>
+                <input type="text" name="senha" required><br>
+            </div>
+
+            <input type="submit" value="Enviar">
+        </form>
+        <p>não possui conta? <a href="formularioCadastro.php">cadastre-se</a></p>
     </div>
 </body>
 </html>

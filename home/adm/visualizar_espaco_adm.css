@@ -1,0 +1,80 @@
+.espaco-expanded {  
+  border-radius: 1px;
+  border: 1px solid gray;
+  background-color: white;
+  width: fit-content; height: fit-content;
+  display: flex;
+  justify-content: center;
+  padding: 80px 50px;
+  flex-direction: column;
+}
+.espaco-expanded h2 {
+  font-size: 45px;
+  color: #5E574D;
+}
+.horario-div h3 {
+  font-size: 30px;
+  margin-top: 30px;
+  color: #2d2a25;
+}
+
+.horario-div .adicionar-horario-form {
+  margin-top: 10px;
+  display: flex;
+  justify-content: start;
+  height: 40px;
+  width: 100%;
+}
+
+.horario-div form input {
+  height: 100%;
+  font-size: 15px;
+  padding: 0 10px;
+  margin-right: 10px;
+}
+.horario-msg {
+  font-size: 18px;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+.horario-div form label {
+  font-size: 18px;
+  font-weight: bold;
+  color: #474747;
+}
+.espaco-expanded .endereco {
+  font-size: 20px;
+}
+.horario-div .adicionar-horario-form input[type="submit"] {
+  background: none;
+  border: none;
+  height: 100%;
+  padding: 0 10px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: #BCD979;
+}
+.horario-div .horario {
+  margin-top: 10px;
+  display: flex;
+  height: 40px;
+  align-items: center;
+  box-shadow: 2px 2px 0 0 gray;
+  border-radius: 10px;
+  justify-content: space-around;
+}
+.exibir-horarios {
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.horario form button[type="submit"] {
+  background: none;
+  border: none;
+}
+.horario form button[type="submit"]:hover {
+  filter: invert(10%)
+}
