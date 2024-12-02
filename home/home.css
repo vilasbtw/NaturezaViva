@@ -80,6 +80,15 @@ button[type="submit"] img {
   height: 15%; width: 100%;
 }
 
+#sair {
+  position: absolute;
+  left: 100%;
+  padding: 20px 30px;
+  transform: translateX(-100%);
+  font-size: 30px;
+  margin-right: 50px;
+  z-index: 10;
+}
 
 .popup {
   z-index: 9;
@@ -87,13 +96,13 @@ button[type="submit"] img {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%; height: 100%;
-
-  border: 1px solid black;
+  width: 100%; height: 100%;  
 }
 
-.popup div {
+.popup > div {
+  border-radius: 10px;
   position: relative;
+  box-shadow: 2px 2px 0 0 gray;
 }
 .x {
   position: absolute;
@@ -105,6 +114,44 @@ button[type="submit"] img {
 }
 .espaco:hover {
   border: 1px solid black;
+}
+.espaco-expanded {  
+  border-radius: 1px;
+  border: 1px solid gray;
+  background-color: white;
+  width: fit-content; height: 30%;
+  min-width: 600px;
+  display: flex;
+  justify-content: center;
+  padding: 0 50px;
+  flex-direction: column;
+}
+.espaco-expanded h2 {
+  font-size: 40px;
+  color: #5E574D;
+}
+
+.horario-div h3 {
+  font-size: 25px;
+  margin-top: 15px;
+  color: #2d2a25;
+}
+
+.horario-div form {
+  margin-top: 10px;
+  display: flex;
+  justify-content: start;
+  height: 30px;
+  width: 100%;
+}
+
+.horario-div form input {
+  height: 100%;
+  margin-right: 10px;
+}
+.espaco-expanded p {
+  font-size: 20px;
+
 }
 .cadastrar-espaco {
   display: flex;
@@ -160,26 +207,32 @@ button[type="submit"] img {
   }
 }
 
+.espacos-div a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .espacos-div {
   margin-top: 5%;
   display: flex;
-  align-items: baseline;
+  align-items: start;
   flex-wrap: wrap;
   justify-content: space-evenly;
   width: 100%; height: 70%;
-  overflow-y: scroll;
+  overflow: scroll;
 }
 
 .espaco {
-  margin-bottom: 50px;
   border-radius: 10px;
   border: 1px solid gray;
-  width: 40%; height: 40%;
+  width: 40%; height: 30%;
   min-width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;  
+  min-height: 200px;
 }
 
 .espaco h3 {
@@ -219,7 +272,6 @@ button[type="submit"] img {
   flex-direction: column;
   justify-content: space-around;
 }
-
 .botaoMenu {
   width: 100%; height: 40px;
   text-align: center;

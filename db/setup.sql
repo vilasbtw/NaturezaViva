@@ -26,10 +26,11 @@ CREATE TABLE Horarios (
 	id int PRIMARY KEY AUTO_INCREMENT,
 	inicio date, fim date,
 	ocorrencia varchar(255),
+	status varchar(255) 
 
 	id_espaco int,
 	id_usuario int,
 
 	FOREIGN KEY (id_espaco) REFERENCES Espacos(id),
-	FOREIGN KEY (id_usuario) REFERENCES Usuario(id)
+	FOREIGN KEY (id_usuario) REFERENCES Usuarios(id)
 );

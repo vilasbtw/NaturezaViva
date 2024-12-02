@@ -10,6 +10,8 @@
   </head>
   <body>
     <main>
+      <a href="../logout.php" id="sair">sair</a>
+
       <button class="hamburguer">
         <img src="../res/menu-bar.png">
       </button>
@@ -47,25 +49,24 @@
               <p class="espaco-msg">Nenhum espaço foi cadastrado ainda...</p>;
             HTML;
           } else { 
+            echo '<div class="espacos-div">';
             foreach ($espacos as $espaco) {
               echo <<<HTML
-                <div class="espacos-div">
-                  <a href="#?operacao=viazualizar-espaco&id={$espaco["id"]}">
-                    <div class="espaco">
-                      <h3>{$espaco["nome"]}</h3>
-                      <h4>{$espaco["endereco"]}</h4>
-                    </div>
-                  </a>
-              </div>
+                <a href="?operacao=visualizar-espaco&id={$espaco["id"]}">
+                  <div class="espaco">
+                    <h3>{$espaco["nome"]}</h3>
+                    <h4>{$espaco["endereco"]}</h4>
+                  </div>
+                </a>
               HTML;
             }
+            echo '</div>';
           }
         ?>
       </section>
     </main>
 
     <script>
-      console.log('pau');
       const hamburguer = document.querySelector('.hamburguer');
       
       const leftPanel = document.querySelector('.left-panel');

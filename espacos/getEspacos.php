@@ -1,5 +1,5 @@
 <?php 
-require_once "../db/conexao.php";
+include $_SERVER["DOCUMENT_ROOT"]."/naturezaviva/db/conexao.php";
 
 function getEspacos($query) { 
     $con = conectar();

@@ -11,6 +11,7 @@
   </head>
   <body>
     <main>
+      <a href="../logout.php" id="sair">sair</a>
       <button class="hamburguer"><img src="../res/menu-bar.png"></button>
         <div class="left-panel">
        
@@ -23,34 +24,16 @@
         </div>
 
       <section class="alugueis">
-        <?php 
+        <?php require '../espacos/getEspacos.php'; 
           if (isset($_GET['operacao'])) {
-            if ($_GET['operacao'] == 'cadastrar-espaco') {
-              echo <<<HTML
-                <div class="popup">
-                  <div class="formulario-padrao cadastrar-espaco">
-                    <button class="x"><a href="../home/admHome.php">x</a></button>
-                    <h1>Cadastrar Espaço</h1>
-                    <form action="../cadastrarEspaco.php" method="POST">
-                      <label for="nome">nome:</label>
-                      <input type="text" id="nome" name="nome" />
+            switch ($_GET['operacao']) {
+              case 'cadastrar-espaco':
+                include "adm/form_cadastrar_espaco.php";
+                break;
 
-                      <label for="endereco">endereco</label>
-                      <input type="text" id="endereco" name="endereco" />
-                      
-                      <input type="submit" value="enviar" />
-                    </form>
-                  </div>
-                </div>
-              HTML;
-            } else if ($_GET['operacao'] == 'visualizar-espaco') {
-              $espaco = getEspacoWithId($_GET['id']);
-              echo <<<HTML
-                <div class="popup">
-                  <p>{$espaco["nome"]}</p>
-                </div>
-              </div>
-              HTML;
+              case 'visualizar-espaco':
+                include "adm/visualizar_espaco_adm.php";
+                break;
             }
           }
         ?>
@@ -67,8 +50,7 @@
           <h2>Meus espaços </h2>
         </div>
 
-        <div class="espacos-div">
-        <?php require_once "../espacos/getEspacos.php";
+        <?php
           $query = "";
           if (isset($_GET["query"])) {
             $query = $_GET["query"];
@@ -80,22 +62,20 @@
               <p class="espaco-msg">Nenhum espaço foi cadastrado ainda...</p>;
             HTML;
           } else { 
+            echo '<div class="espacos-div">';
             foreach ($espacos as $espaco) {
               echo <<<HTML
-                <div class="espacos-div">
-                  <a href="#?operacao=visualizar-espaco&id={$espaco["id"]}">
-
+                  <a href="?operacao=visualizar-espaco&id={$espaco["id"]}">
                     <div class="espaco">
                       <h3>{$espaco["nome"]}</h3>
                       <h4>{$espaco["endereco"]}</h4>
                     </div>
                   </a>
-              </div>
-              HTML;
-            }
+                  HTML;
+                }
+              echo '</div>';
           }
         ?>
-        </div>
       </section>
     </main>
 
@@ -105,7 +85,6 @@
       const leftPanel = document.querySelector('.left-panel');
 
       if (document.querySelector('.popup')) {
-        leftPanel.classList.toggle('disabled');
         [...document.querySelector('.popup').parentElement.children].forEach(el => {
           if (el != document.querySelector('.popup')) el.style.filter = 'blur(2px)';
         });

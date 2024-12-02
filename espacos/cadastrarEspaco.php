@@ -1,4 +1,5 @@
-<?php include "db/conexao.php"; 
+<?php 
+include $_SERVER["DOCUMENT_ROOT"]."/naturezaviva/db/conexao.php";
 
 function cadastrarEspaco($nome, $endereco) {
   $con = conectar();
