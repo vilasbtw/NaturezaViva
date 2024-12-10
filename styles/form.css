@@ -27,9 +27,21 @@ body .formulario-padrao form input[type="submit"] {
 body .formulario-padrao form input[type="submit"]:hover {
   background-color: #9DAD6F;
 }
-
+.error-message {
+  width: 100%;
+  text-align: center;
+  
+}
+.check-row {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+}
+.check-row input[type="checkbox"] {
+  width: 25px;
+  margin-right: 10px;
+}
 body .formulario-padrao h1 {
-  margin-bottom: 5px;
   font-size: 50px;
   text-align: center;
 }
@@ -48,9 +60,9 @@ body .formulario-padrao form label {
 
 body .formulario-padrao form {
   display: flex;
-  width: 80%; height: 50%;
+  width: 80%; height: 60%;
   align-items: baseline;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-direction: column;
 }
 
