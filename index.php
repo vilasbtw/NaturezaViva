@@ -39,7 +39,7 @@ if (isset($_SESSION['tipoUsuario'])) {
 <body>
     <div class="formulario-padrao">
         <h1>Natureza Viva</h1>
-        <form method="POST" action="entrar.php">
+        <form method="POST" action="actions/entrar.php">
             <div class="input-row">
                 <label for="nome">Nome</label>
                 <input type="text" name="nome" required><br>
