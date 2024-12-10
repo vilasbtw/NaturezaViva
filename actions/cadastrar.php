@@ -1,7 +1,6 @@
 
 <?php
-    include "conexao.php";
-    include "link.php";
+    include "../db/conexao.php";
 
     $nome = $_POST["nome"];
     $senha = $_POST["senha"];
@@ -14,7 +13,7 @@
     if (mysqli_num_rows($resultado) > 0) {
         echo "Usuário já existente. Escolha outro nome.";
     } else {
-        $queryCadastro = "INSERT INTO Usuarios(id, nome, senha, tipoUsuario) VALUES (default, '$nome', '$senha', default)";
+        $queryCadastro = "INSERT INTO Usuarios(nome, senha) VALUES ('$nome', '$senha')";
         $inseriu = mysqli_query($conexao, $queryCadastro);
 
         if ($inseriu) {

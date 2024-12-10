@@ -11,7 +11,7 @@
 <body>
     <div class="formulario-padrao">
         <h1>Cadastrar-se</h1>
-        <form method="POST" action="cadastrar.php">
+        <form method="POST" action="actions/cadastrar.php">
             <label for="nome">Nome</label>
             <input type="text" name="nome" required><br>
 

@@ -1,16 +1,3 @@
-<?php
-session_start();
-
-if (isset($_SESSION['tipoUsuario'])) {
-    if ($_SESSION['tipoUsuario'] == 1) {
-        header("Location: admin.php");
-    } else {
-        header("Location: user.php");
-    }
-    exit(); 
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,8 +17,8 @@ if (isset($_SESSION['tipoUsuario'])) {
         </div>
         </div>
 
-        <h1>Natureza Viva</h1>
-        <form method="POST" action="entrar.php">
+        <h1>Entrar</h1>
+        <form method="POST" action="actions/entrar.php">
             <div class="input-row">
                 <label for="nome">Nome</label>
                 <input type="text" name="nome" required><br>
@@ -44,7 +31,7 @@ if (isset($_SESSION['tipoUsuario'])) {
 
             <input type="submit" value="Enviar">
         </form>
-        <p>não possui conta? <a href="formularioCadastro.php">cadastre-se</a></p>
+        <p>não possui conta?<a href="formularioCadastro.php">cadastre-se</a></p>
     </div>
 </body>
 </html>
