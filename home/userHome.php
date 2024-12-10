@@ -20,7 +20,7 @@
         <div class="content">
           <a href="http://" id="perfil"> <h3>Meu perfil</h3></a>
             <div class="botoes">
-              <a href="https://" id="botaoTexto"> <button class="botaoMenu"><h3 >Meus Aluguéis</h3></button></a>
+              <a href="user/meusAlugueis.php" id="botaoTexto"> <button class="botaoMenu"><h3 >Meus Aluguéis</h3></button></a>
           </div>
         </div>
       </div>
