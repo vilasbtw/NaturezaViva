@@ -29,7 +29,9 @@ body .formulario-padrao form input[type="submit"]:hover {
 }
 .error-message {
   width: 100%;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
 }
 .check-row {
@@ -49,7 +51,7 @@ body .formulario-padrao h1 {
 a {
   color: #535b3c;
 }
-body .formulario-padrao p {
+body .formulario-padrao .cadastrar-p {
   margin-top: 30px;
   font-size: 18px;
 }

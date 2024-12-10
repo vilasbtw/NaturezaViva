@@ -25,3 +25,15 @@ function getEspacoWithId($id) {
     $espaco = mysqli_fetch_array($res);
     return $espaco;
 }
+
+function getEspacosFromAdm($idAdm) {
+    $con = conectar();
+
+    $res = mysqli_query($con, "SELECT * FROM Espacos WHERE id_administrador=$idAdm");
+
+    $espacos = [];
+    while ($arr = mysqli_fetch_array($res)) {
+        array_push($espacos, $arr);
+    }
+    return $espacos;
+}

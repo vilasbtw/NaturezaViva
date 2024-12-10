@@ -22,7 +22,7 @@ if (isset($_SESSION['tipoUsuario'])) {
 
     <style>
         .formulario-padrao {
-            height: 40vh;
+            height: 45vh;
             min-height: 400px;
         }
         .formulario-padrao form .input-row {
@@ -40,6 +40,7 @@ if (isset($_SESSION['tipoUsuario'])) {
     <div class="formulario-padrao">
         <h1>Natureza Viva</h1>
         <form method="POST" action="actions/entrar.php">
+            <p class="error-message"><?php if (isset($_GET['mensagem'])) echo $_GET['mensagem'] ?></p>
             <div class="input-row">
                 <label for="nome">Nome</label>
                 <input type="text" name="nome" required><br>
@@ -47,12 +48,12 @@ if (isset($_SESSION['tipoUsuario'])) {
 
             <div class="input-row">
                 <label for="senha">Senha</label>
-                <input type="text" name="senha" required><br>
+                <input type="password" name="senha" required><br>
             </div>
 
             <input type="submit" value="Enviar">
         </form>
-        <p>não possui conta? <a href="formularioCadastro.php">cadastre-se</a></p>
+        <p class="cadastrar-p">não possui conta? <a href="formularioCadastro.php">cadastre-se</a></p>
     </div>
 </body>
 </html>

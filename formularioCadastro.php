@@ -44,7 +44,7 @@
 
             <input type="submit" value="Enviar">
         </form>
-        <p>já possui conta? <a href="index.php">entre no sistema</a></p>
+        <p class="cadastrar-p">já possui conta? <a href="index.php">entre no sistema</a></p>
     </div>
 </body>
 </html>

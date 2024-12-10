@@ -5,16 +5,21 @@ $espaco = getEspacoWithId($_GET['id']);
     <div class="espaco-expanded">
         <button class="x"><a href="../home/userHome.php"><img src="../res/x-symbol.png" alt=""></a></button>
         <h2><?php echo $espaco['nome']; ?></h2>
+
         <p class="endereco">Endereco: <?php echo $espaco['endereco']; ?></p>
+        <h3><?php
+            include_once $_SERVER["DOCUMENT_ROOT"]."/naturezaviva/usuario/getUsuario.php";
+            echo 'administrador: ' . getDadosAdmininstrador($espaco['id_administrador'])['nome'];
+        ?></h3>
 
         <div class="horario-div">
             <h3>HORARIOS</h3>
         
             <div class="exibir-horarios">
                 <?php include $_SERVER["DOCUMENT_ROOT"] . "/naturezaviva/horarios/getHorarios.php";
-                    $horarios = getHorariosFrom($_GET['id']);
+                    $horarios = getHorariosDisponiveis($_GET['id']);
                     if (empty($horarios)) {
-                        echo "<p class='horario-msg'>nenhum horário cadastrado</p>";
+                        echo "<p class='horario-msg'>nenhum horário disponível</p>";
 
                     } else {
                         foreach ($horarios as $horario) {
@@ -24,7 +29,7 @@ $espaco = getEspacoWithId($_GET['id']);
                                 <div class="horario-wrapper">
                                     <h4>{$horario["status"]}</h4>
                                     <div class="horario">
-                                        <form class="dados-form" method="POST" action="../actions/alterarHorario.php">
+                                        <form class="dados-form" method="POST" action="../actions/reservarHorario.php">
                                             <input type="hidden" name="espaco-id" value="{$espaco['id']}" />
                                             <input type="hidden" name="horario-id" value="{$horario['id']}" />
 

@@ -1,3 +1,5 @@
+<?php session_start() ?>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -53,12 +55,15 @@
         </div>
 
         <?php
-          $query = "";
-          if (isset($_GET["query"])) {
-            $query = $_GET["query"];
-          }
-          $espacos = getEspacos($query);
-          
+          // $query = "";
+          // if (isset($_GET["query"])) {
+          //   $query = $_GET["query"];
+          // }
+          // $espacos = getEspacos($query);
+
+
+          if (isset($_SESSION)) $espacos = getEspacosFromAdm($_SESSION['id']);
+
           if (empty($espacos)) {
             echo <<<HTML
               <p class="espaco-msg">Nenhum espaço foi cadastrado ainda...</p>;

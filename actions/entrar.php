@@ -1,7 +1,7 @@
 <?php   
     session_start();
 
-    include "../db/conexao.php";
+    include $_SERVER["DOCUMENT_ROOT"]."/naturezaviva/db/conexao.php";
     
     $conexao = conectar();
 
@@ -10,7 +10,7 @@
 
     // Verificar se existe esse nome na tabela usuários (Se é usuário comum)
     $queryVerificaUsuario = "SELECT * FROM Usuarios WHERE nome = '$nome'";
-    $linhas = mysqli_query($conexao,$queryVerificaUsuario);
+    $linhas = mysqli_query($conexao, $queryVerificaUsuario);
 
     if (mysqli_num_rows($linhas) > 0) {
         $usuario = mysqli_fetch_assoc($linhas);
@@ -24,8 +24,9 @@
             
             exit();
         } else {
-            echo "<a href='../index.php'>voltar ao inicio</a><br>";
-            echo "Senha incorreta.";
+            
+        header('Location: ../index.php?mensagem=Senha incorreta.');
+        exit();
         }
     }
 
@@ -45,13 +46,13 @@
             
             exit();
         } else {
-            echo "<a href='../index.php'>voltar ao inicio</a><br>";
-            echo "Senha incorreta.";
+            header('Location: ../index.php?mensagem=Senha incorreta.');
+            exit();
         }
 
     }  else {
-         echo "<a href='../index.php'>voltar ao inicio</a><br>";
-         echo "Usuario não encontrado.";
+        header('Location: ../index.php?mensagem=Usuário não encontrado.');
+        exit();
     }
 
     mysqli_close($conexao);
