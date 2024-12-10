@@ -1,3 +1,12 @@
+<?php 
+  session_start(); 
+  if (!isset($_SESSION['id'])) {
+    header('Location: ../index.php');
+    exit;
+  }
+?>
+
+
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -18,9 +27,10 @@
       </button>
       <div class="left-panel">
         <div class="content">
-          <a href="http://" id="perfil"> <h3>Meu perfil</h3></a>
+          <a href="http://" id="perfil"> <h3><?php echo $_SESSION['nome'] ?></h3></a>
             <div class="botoes">
-              <a href="user/meusAlugueis.php" id="botaoTexto"> <button class="botaoMenu"><h3 >Meus Aluguéis</h3></button></a>
+              <a href="?query=minhas reservas" id="botaoTexto"> <button class="botaoMenu"><h3 >Minhas Reservas</h3></button></a>
+              <a href="?" id="botaoTexto"> <button class="botaoMenu"><h3 >Exibir Todos</h3></button></a>
           </div>
         </div>
       </div>
@@ -52,7 +62,11 @@
           if (isset($_GET["query"])) {
             $query = $_GET["query"];
           }
-          $espacos = getEspacos($query);
+
+          if (isset($_GET["query"]) && $_GET["query"] == "minhas reservas") {
+            $espacos = getEspacosReservadosPor($_SESSION['id']);
+          }
+          else $espacos = getEspacos($query);
           
           if (empty($espacos)) {
             echo <<<HTML

@@ -1,4 +1,11 @@
-<?php session_start() ?>
+<?php 
+  session_start(); 
+  if (!isset($_SESSION['id'])) {
+    header('Location: ../index.php');
+    exit;
+  }
+?>
+
 
 <html lang="en">
   <head>
@@ -20,7 +27,7 @@
         <div class="left-panel">
        
           <div class="content">
-            <a href="http://" id="perfil"> <h3>Meu perfil</h3></a>
+            <a href="http://" id="perfil"> <h3><h3><?php echo $_SESSION['nome'] ?></h3></a>
               <div class="botoes">
                 <a href="?operacao=cadastrar-espaco" id="botaoTexto"> <button class="botaoMenu"><h3 >Cadastrar um Espaco</h3></button></a>
               </div>

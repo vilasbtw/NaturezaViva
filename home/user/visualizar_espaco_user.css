@@ -38,7 +38,7 @@
   width: 99%;
 }
 .horario-wrapper h4 {
-  font-style: italic;
+  font-weight: normal;
 }
 .adicionar-horario-form .input-row label {
   font-size: 18px;

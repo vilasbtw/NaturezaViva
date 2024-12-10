@@ -37,3 +37,15 @@ function getEspacosFromAdm($idAdm) {
     }
     return $espacos;
 }
+
+
+function getEspacosReservadosPor($usuarioId) {
+    $con = conectar();
+    $res = mysqli_query($con, "SELECT Espacos.id, Espacos.nome, Espacos.endereco FROM Espacos INNER JOIN Horarios ON Horarios.id_espaco = Espacos.id WHERE Horarios.id_usuario = $usuarioId");
+
+    $espacos = [];
+    while ($arr = mysqli_fetch_array($res)) {
+        array_push($espacos, $arr);
+    }
+    return $espacos;
+}

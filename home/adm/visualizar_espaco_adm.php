@@ -32,6 +32,9 @@ $espaco = getEspacoWithId($_GET['id']);
                         foreach ($horarios as $horario) {
                             $inicioFormatado = date_format(new DateTime($horario["inicio"]), 'd/m/Y');
                             $finalFormatado = date_format(new DateTime($horario["fim"]), 'd/m/Y');
+                            $ocorrencia = '';
+                            if (!empty($horario['ocorrencia'])) $ocorrencia = 'ocorrência: ' . $horario['ocorrencia'];
+
                             if ($horario["status"] == "sem reserva") {
                                 echo <<<HTML
                                     <div class="horario-wrapper">
@@ -66,15 +69,15 @@ $espaco = getEspacoWithId($_GET['id']);
                                         </div>     
                                     </div>                   
                                 HTML;
-                            } else if ($horario["status"] == "reservado") {
+                            } else if ($horario["status"] == "reservado" || $horario["status"] == "aguardando devolução com ocorrência") {
                                 include_once $_SERVER["DOCUMENT_ROOT"]."/naturezaviva/usuario/getUsuario.php";
                                 $nomeUsuario = getDadosUsuario($horario['id_usuario'])['nome'];
                                 echo <<<HTML
                                     <div class="horario-wrapper">
                                         <h4>{$horario["status"]} por $nomeUsuario</h4>
+                                        <h4 style="font-weight: bold">$ocorrencia</h4>
                                         <div class="horario" style="border-color: #F08A4F">
                                             <form class="dados-form" method="POST" action="../actions/alterarHorario.php">
-                                                <input type="hidden" name="espaco-id" value="{$espaco['id']}" />
                                                 <input type="hidden" name="horario-id" value="{$horario['id']}" />
 
                                                 <div class="input-row">
@@ -86,6 +89,38 @@ $espaco = getEspacoWithId($_GET['id']);
                                                     <input type="date" class="visivel" disabled name="fim" value="{$horario['fim']}" />
                                                 </div>
                                             </form>
+                                        </div>     
+                                    </div>  
+                                HTML;
+                            } else if ($horario["status"] == "aguardando aprovação") {
+                                include_once $_SERVER["DOCUMENT_ROOT"]."/naturezaviva/usuario/getUsuario.php";
+                                $nomeUsuario = getDadosUsuario($horario['id_usuario'])['nome'];
+                                echo <<<HTML
+                                    <div class="horario-wrapper">
+                                        <h4>{$horario["status"]} para devolução por $nomeUsuario</h4>
+                                        <div class="horario" style="border-color: #F08A4F">
+                                            <form class="dados-form" method="POST" action="../actions/alterarHorario.php">
+                                                <input type="hidden" name="horario-id" value="{$horario['id']}" />
+                                                
+                                                <div class="input-row">
+                                                    <label for="inicio">inicio</label>
+                                                    <input type="date" class="visivel" disabled name="inicio" value="{$horario['inicio']}" />
+                                                </div>
+                                                <div class="input-row">
+                                                    <label for="fim">fim</label>
+                                                    <input type="date" class="visivel" disabled name="fim" value="{$horario['fim']}" />
+                                                </div>
+                                                
+                                            </form>
+                                            <div class="buttons-div"> 
+                                                <a href="adm/relatar_ocorrencia.php?id={$horario['id']}"><button style="background: none; border: none; cursor: pointer" type="submit"><img src="../res/x-symbol.png" /></button></a>
+                                                <form method="POST" action="../actions/removerHorario.php">
+                                                    <input type="hidden" name="espaco-id" value="{$espaco['id']}" />
+                                                    <input type="hidden" name="horario-id" value="{$horario['id']}" />
+                                                    
+                                                    <button class="lapis"><img src="../res/check.png" alt="" /></button>
+                                                </form>
+                                            </div>
                                         </div>     
                                     </div>  
                                 HTML;
