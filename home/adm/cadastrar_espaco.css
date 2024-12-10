@@ -1,0 +1,21 @@
+.cadastrar-espaco {
+  display: flex;
+  border: 1px solid gray;
+  border-radius: 10px;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 600px !important;
+  width: 40% !important;  
+  height: 45%;
+}
+.cadastrar-espaco h2 {
+  font-size: 30px;
+}
+
+@media only screen and (max-width: 800px) {
+  .cadastrar-espaco {
+    border: none;
+    min-width: 0; max-width: none;
+    width: 100%;
+  }
+}

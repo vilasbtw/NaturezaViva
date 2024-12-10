@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" defer>
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="user/visualizar_espaco_user.css">
 
     <title>User Home</title>
   </head>
@@ -24,6 +25,15 @@
         </div>
       </div>
       <section class="alugueis">
+      <?php require '../espacos/getEspacos.php'; 
+          if (isset($_GET['operacao'])) {
+            switch ($_GET['operacao']) {
+              case 'visualizar-espaco':
+                include "user/visualizar_espaco_user.php";
+                break;
+            }
+          }
+        ?>
         <div class="top-section">
           <div class="pesquisar-div">
             <form action="#" class="pesquisar-form">
@@ -34,7 +44,7 @@
         </div>
 
         <div id="titulo2">
-          <h2 >Espaços disponíveis</h2>
+          <h2>Espaços disponíveis</h2>
         </div>
 
         <?php require_once "../espacos/getEspacos.php";
@@ -71,6 +81,11 @@
       
       const leftPanel = document.querySelector('.left-panel');
           
+      if (document.querySelector('.popup')) {
+        [...document.querySelector('.popup').parentElement.children].forEach(el => {
+          if (el != document.querySelector('.popup')) el.style.filter = 'blur(2px)';
+        });
+      }
 
       hamburguer.onclick = ev => {
         console.log('pau');
