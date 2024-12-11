@@ -29,12 +29,12 @@
             <p class="error-message"><?php if (isset($_GET['mensagem'])) echo $_GET['mensagem'] ?></p>
             <div class="input-row">
                 <label for="nome">Nome</label>
-                <input type="text" name="nome" required>
+                <input type="text" name="nome" placeholder="Nome" required>
             </div>
 
             <div class="input-row">
                 <label for="senha">Senha</label>
-                <input type="password" name="senha" required>
+                <input type="password" name="senha" placeholder="Senha" required>
             </div>
 
             <div class="check-row">
@@ -46,5 +46,15 @@
         </form>
         <p class="cadastrar-p">já possui conta? <a href="index.php">entre no sistema</a></p>
     </div>
+    <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
 </body>
 </html>
